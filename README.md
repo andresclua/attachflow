@@ -4,6 +4,8 @@
 
 This documentation provides details on how to dynamically load JavaScript files and CSS stylesheets into a webpage using the `loadScript` and `loadStyle` utility functions. These functions support appending to the `head`, `body`, or any specified DOM element, and they allow for the addition of custom attributes to the `<script>` and `<link>` elements.
 
+
+
 ## Setup for with in your favourite bundler(vite,webpack)
 ``` js
 npm i attachflow
@@ -16,8 +18,14 @@ loadScript({
 }).then(() => console.log('Script loaded successfully.'))
 .catch(error => console.error(error));
 ```
+
+
+
 ## Setup for via CDN
-Load the file from CDN
+Load the file from CDN 
+``` html
+<script type="text/javascript" src="https://unpkg.com/attachflow/dist/attachflow.umd.js">
+```
 ``` js
 attachflow.loadScript({ 
   url: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js',
@@ -25,6 +33,8 @@ attachflow.loadScript({
 }).then(() => console.log('Script loaded successfully.'))
 .catch(error => console.error(error));
 ```
+[> example with CDN ](https://codepen.io/andresclua/pen/NWJewLK)
+
 
 ## Functions
 
@@ -64,11 +74,13 @@ Dynamically loads a CSS stylesheet into the page.
 **Returns:**
 - A Promise that resolves when the stylesheet is successfully loaded or rejects with an error if the stylesheet fails to load.
 
+**Example:**
 ``` js
-loadScript({ 
-  url: 'https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css',
-  appendTo: 'body'
-}).then(() => console.log('style loaded successfully.'))
+loadStyle({ 
+  url: 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css',
+  attributes: ['integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrbQGdQYeo+IcNZDhBCZlgn/9ehbqeAyhUcBWmTx", crossorigin="anonymous"'],
+  appendTo: document.querySelector('.test') // will append inside div with class test
+}).then(() => console.log('Stylesheet loaded successfully.'))
 .catch(error => console.error(error));
 ```
 
