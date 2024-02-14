@@ -1,7 +1,7 @@
 {
   "name": "attachflow",
   "private": false,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "main": "./dist/attachflow.umd.cjs",
   "module": "./dist/attachflow.es.js",
@@ -28,5 +28,6 @@
     "Modular JavaScript development",
     "Efficient script management",
     "Web performance optimization"
-  ]
+  ],
+  "license": "MIT"
 }
