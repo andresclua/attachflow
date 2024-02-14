@@ -1,13 +1,13 @@
 {
   "name": "attachflow",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "main": "./dist/attachflow.umd.cjs",
-  "module": "./dist/attachflow.js",
+  "module": "./dist/attachflow.es.js",
   "exports": {
     ".": {
-      "import": "./dist/attachflow.js",
+      "import": "./dist/attachflow.es.js",
       "require": "./dist/attachflow.umd.cjs"
     }
   },
