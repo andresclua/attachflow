@@ -11,7 +11,8 @@ This documentation provides details on how to dynamically load JavaScript files 
 npm i attachflow
 ```
 ``` js
-import import {loadScript} from 'attachflow';
+import  {loadScript} from 'attachflow';
+
 loadScript({ 
   url: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js',
   appendTo: 'head'
