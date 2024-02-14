@@ -1,5 +1,7 @@
 # Attach Flow - Dynamic Resource Loader 
 
+![hero](https://raw.githubusercontent.com/andresclua/attachflow/37b5c456d41a996655012778f8f9d4e86b43c372/public/cover.png)
+
 This documentation provides details on how to dynamically load JavaScript files and CSS stylesheets into a webpage using the `loadScript` and `loadStyle` utility functions. These functions support appending to the `head`, `body`, or any specified DOM element, and they allow for the addition of custom attributes to the `<script>` and `<link>` elements.
 
 ## Setup for with in your favourite bundler(vite,webpack)
