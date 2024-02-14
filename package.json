@@ -7,8 +7,8 @@
   "module": "./dist/attachflow.js",
   "exports": {
     ".": {
-      "import": "./dist/attachFlow.js",
-      "require": "./dist/attachFlow.umd.cjs"
+      "import": "./dist/attachflow.js",
+      "require": "./dist/attachflow.umd.cjs"
     }
   },
   "scripts": {
@@ -18,5 +18,15 @@
   },
   "devDependencies": {
     "vite": "^5.1.0"
-  }
+  },
+  "keywords": [
+    "JavaScript module loader",
+    "Dynamic script loading",
+    "Asynchronous CSS loading",
+    "Promise-based resource loader",
+    "Frontend development tools",
+    "Modular JavaScript development",
+    "Efficient script management",
+    "Web performance optimization"
+  ]
 }
