@@ -6,7 +6,7 @@ This documentation provides details on how to dynamically load JavaScript files 
 
 
 
-## Setup for with in your favourite bundler(vite,webpack)
+## Setup via command line
 ``` js
 npm i attachflow
 ```
