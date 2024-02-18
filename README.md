@@ -45,12 +45,13 @@ Dynamically loads a JavaScript file into the page.
 
 **Parameters:**
 - `url` (string): The URL of the script to load.
+- `inlineScript` (string): Optional. The JavaScript code to execute inline. If provided, the script will be executed in the context of the page. If url is also provided, inlineScript will execute after the external script is loaded.
 - `attributes` (Array): Optional. An array of strings representing additional attributes to set on the script element. Each attribute can be in the form of `"key=value"` or just `"key"` for boolean attributes.
 - `appendTo` (string | Element): Optional. Specifies the element to which the script element will be appended. Can be a selector string (`'head'`, `'body'`), or a DOM element reference. Defaults to `'head'`.
 
 **Returns:**
 
-- A Promise that resolves when the script is successfully loaded or rejects with an error if the script fails to load.
+- A Promise that resolves when the script is successfully loaded and executed or rejects with an error if the script fails to load or execute.
 
 **Example:**
 
@@ -61,6 +62,14 @@ loadScript({
     appendTo: document.getElementById('customDiv') 
 }).then(() => console.log('Script loaded successfully.'))
   .catch(error => console.error(error));
+
+loadScript({ 
+    inlineScript: `console.log('This is inline script execution.');`, 
+    appendTo: document.getElementById('customDiv') 
+}).then(() => console.log('Inline script executed successfully.'))
+.catch(error => console.error(error));
+
+
 ```
 
 ### `loadStyle`
@@ -69,11 +78,12 @@ Dynamically loads a CSS stylesheet into the page.
 
 **Parameters:**
 - `url` (string): The URL of the script to load.
+- `inlineStyle` (string): Optional. The CSS styles to apply inline. If provided, the styles will be applied directly to the page within a `<style>` tag.
 - `attributes` (Array): Optional. An array of strings representing additional attributes to set on the script element. Each attribute can be in the form of `"key=value"` or just `"key"` for boolean attributes.
 - `appendTo` (string | Element): Optional. Specifies the element to which the script element will be appended. Can be a selector string (`'head'`, `'body'`), or a DOM element reference. Defaults to `'head'`.
 
 **Returns:**
-- A Promise that resolves when the stylesheet is successfully loaded or rejects with an error if the stylesheet fails to load.
+- A Promise that resolves when the stylesheet is successfully loaded and applied or rejects with an error if the stylesheet fails to load or apply.
 
 **Example:**
 ``` js
@@ -83,12 +93,19 @@ loadStyle({
   appendTo: document.querySelector('.test') // will append inside div with class test
 }).then(() => console.log('Stylesheet loaded successfully.'))
 .catch(error => console.error(error));
+
+loadStyle({ 
+    inlineStyle: `body { background-color: coral; }`,
+    appendTo: document.querySelector('.test') // will append inside div with class test
+}).then(() => console.log('Inline styles applied successfully.'))
+.catch(error => console.error(error));
+
+
 ```
 
 ### `Usage Notes`
 
-Ensure the provided url is correct and accessible to avoid loading errors. When using the attributes parameter, make sure the attribute values are properly formatted. The appendTo parameter can accept a string identifier ('head', 'body') or a direct DOM element reference, offering flexibility in where your scripts and styles are injected.
-Providing an invalid appendTo value will result in an error, so ensure it correctly references an existing DOM element or uses the allowed string identifiers.
+Ensure the provided url is correct and accessible to avoid loading errors. When using the attributes parameter, make sure the attribute values are properly formatted. The appendTo parameter can accept a string identifier ('head', 'body') or a direct DOM element reference, offering flexibility in where your scripts and styles are injected. Providing an invalid appendTo value will result in an error, so ensure it correctly references an existing DOM element or uses the allowed string identifiers. Utilizing inlineScript or inlineStyle allows for immediate script execution or style application without the need for external resources.
 
 ### `License`
 
